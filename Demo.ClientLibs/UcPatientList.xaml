@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Demo.ClientLibs.UcPatientList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Demo.ClientLibs"
+             xmlns:converters="clr-namespace:Demo.ClientLibs.Converters"
+             mc:Ignorable="d" Background="White" Padding="6"
+             d:DesignHeight="300" d:DesignWidth="500">
+    <UserControl.Resources>
+        <converters:DateConverter x:Key="DateConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Margin="0,5" Text="Patient Management" FontSize="16"></TextBlock>
+            <Button Content="Refresh" Margin="5,3" Padding="6,1" Click="OnRefreshClick"></Button>
+        </StackPanel>
+        
+        <DataGrid Grid.Row="1" Name="dgPatients" AutoGenerateColumns="False"
+                  HorizontalScrollBarVisibility="Auto" 
+                  VerticalScrollBarVisibility="Auto" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="180"></DataGridTextColumn>
+                <DataGridTextColumn Header="Birthday" Binding="{Binding Birthday, Converter={StaticResource DateConverter}}" Width="120" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Age" Binding="{Binding Age}" Width="70"></DataGridTextColumn>
+                <DataGridTextColumn Header="CardNo" Binding="{Binding CardNo}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="IC" Binding="{Binding IC}" Width="100"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
