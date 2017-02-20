@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="CLIENTFOLDER">
+            <Component Id="cmp608EAC0AAD4E745E863C54DA36594D1A" Guid="*">
+                <File Id="fil25877A6FFF82E2FBE53F6BB5BC8A7299" KeyPath="yes" Source="$(var.Demo.ApplicationClient.TargetDir)\Demo.ApplicationClient.exe" />
+            </Component>
+            <Component Id="cmpB7FADE79589C27E8C44DF52AA7E07EE4" Guid="*">
+                <File Id="fil66709277B83EF9616DCF4417FD60DFA0" KeyPath="yes" Source="$(var.Demo.ApplicationClient.TargetDir)\Demo.ApplicationClient.exe.config" />
+            </Component>
+            <Component Id="cmpF0E28E65EA9A39879D9DE74CA3BDA8F2" Guid="*">
+                <File Id="fil79A9961BF9AC123A77A748FAD43B164D" KeyPath="yes" Source="$(var.Demo.ApplicationClient.TargetDir)\Demo.ApplicationClient.pdb" />
+            </Component>
+            <Component Id="cmp8A9C7967A0DAFE7AA064C374598DBAAC" Guid="*">
+                <File Id="fil33ACCC220848EF01F105E458DB015CF4" KeyPath="yes" Source="$(var.Demo.ApplicationClient.TargetDir)\Demo.ApplicationClient.vshost.exe" />
+            </Component>
+            <Component Id="cmpAB7097B74DD699AA2EDD28E9DEE48271" Guid="*">
+                <File Id="fil214D90A8E6035B2702B688852C6EF458" KeyPath="yes" Source="$(var.Demo.ApplicationClient.TargetDir)\Demo.ApplicationClient.vshost.exe.config" />
+            </Component>
+            <Component Id="cmp1EBF3A5FF12EA632040E2069C64C409E" Guid="*">
+                <File Id="filAC6C051C3589E696A73DC3A57416D015" KeyPath="yes" Source="$(var.Demo.ApplicationClient.TargetDir)\Demo.ApplicationClient.vshost.exe.manifest" />
+            </Component>
+            <Component Id="cmp9927AD3DBC5BBCD8BC8E55DA22B9E328" Guid="*">
+                <File Id="fil43853479BF490368364A58D92ED072C1" KeyPath="yes" Source="$(var.Demo.ApplicationClient.TargetDir)\Demo.ClientLibs.dll" />
+            </Component>
+            <Component Id="cmp766F5970699C5B17A1ABF77196A98ECB" Guid="*">
+                <File Id="filEC96A72BF0BB6DB0DFFE4F49D8E543DB" KeyPath="yes" Source="$(var.Demo.ApplicationClient.TargetDir)\Demo.ClientLibs.pdb" />
+            </Component>
+            <Component Id="cmp8660F8E205E60A1DA2993CA6A4E52143" Guid="*">
+                <File Id="fil57E40E85D180EB2193B0AF8210BA9A0D" KeyPath="yes" Source="$(var.Demo.ApplicationClient.TargetDir)\Demo.ServerLibs.dll" />
+            </Component>
+            <Component Id="cmp4D529B31695FB6F8A60E0453A215C022" Guid="*">
+                <File Id="fil0620906AEDA8FFDF7760B5980A3801AE" KeyPath="yes" Source="$(var.Demo.ApplicationClient.TargetDir)\Demo.ServerLibs.pdb" />
+            </Component>
+            <Component Id="cmp8BEC779D5DF8290B8CDB9AB27A1A4F49" Guid="*">
+                <File Id="fil9128C966AD0B9F0E853F188FA7E7EB1F" KeyPath="yes" Source="$(var.Demo.ApplicationClient.TargetDir)\Newtonsoft.Json.dll" />
+            </Component>
+            <Component Id="cmpE4F8AEA1B68A11BD90C476184334B9AC" Guid="*">
+                <File Id="fil52576220C2B04DA00A0675F68A798C70" KeyPath="yes" Source="$(var.Demo.ApplicationClient.TargetDir)\Newtonsoft.Json.xml" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="ApplicationClientComponents">
+            <ComponentRef Id="cmp608EAC0AAD4E745E863C54DA36594D1A" />
+            <ComponentRef Id="cmpB7FADE79589C27E8C44DF52AA7E07EE4" />
+            <ComponentRef Id="cmpF0E28E65EA9A39879D9DE74CA3BDA8F2" />
+            <ComponentRef Id="cmp8A9C7967A0DAFE7AA064C374598DBAAC" />
+            <ComponentRef Id="cmpAB7097B74DD699AA2EDD28E9DEE48271" />
+            <ComponentRef Id="cmp1EBF3A5FF12EA632040E2069C64C409E" />
+            <ComponentRef Id="cmp9927AD3DBC5BBCD8BC8E55DA22B9E328" />
+            <ComponentRef Id="cmp766F5970699C5B17A1ABF77196A98ECB" />
+            <ComponentRef Id="cmp8660F8E205E60A1DA2993CA6A4E52143" />
+            <ComponentRef Id="cmp4D529B31695FB6F8A60E0453A215C022" />
+            <ComponentRef Id="cmp8BEC779D5DF8290B8CDB9AB27A1A4F49" />
+            <ComponentRef Id="cmpE4F8AEA1B68A11BD90C476184334B9AC" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

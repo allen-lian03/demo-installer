@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="SERVERFOLDER">
+            <Component Id="cmpE8BCEAAD6387BE961877844C731E681D" Guid="*">
+                <File Id="fil45E359DD9AC81C6B569D76B36D91E075" KeyPath="yes" Source="$(var.Demo.ApplicationServer.TargetDir)\Demo.ApplicationServer.exe" />
+            </Component>
+            <Component Id="cmpE4137A0D8C46A973D1645EC394CF6D2D" Guid="*">
+                <File Id="fil90610F5F62A1AC19335A4EEA7E950853" KeyPath="yes" Source="$(var.Demo.ApplicationServer.TargetDir)\Demo.ApplicationServer.exe.config" />
+            </Component>
+            <Component Id="cmp3B138DD3C86E64E1B624C84F1D61F9CF" Guid="*">
+                <File Id="filE69AEEFA54EE8458B15CB8E4965AE098" KeyPath="yes" Source="$(var.Demo.ApplicationServer.TargetDir)\Demo.ApplicationServer.pdb" />
+            </Component>
+            <Component Id="cmp31137B91C84C2337CCD3B4D4A710083C" Guid="*">
+                <File Id="fil6CA25C56741C07DA07784E22AC48746E" KeyPath="yes" Source="$(var.Demo.ApplicationServer.TargetDir)\Demo.ServerLibs.dll" />
+            </Component>
+            <Component Id="cmp26956ADA5059353232E5303125B83476" Guid="*">
+                <File Id="fil21FD01B330157DA1C7F8330A9F7659A1" KeyPath="yes" Source="$(var.Demo.ApplicationServer.TargetDir)\Demo.ServerLibs.pdb" />
+            </Component>
+            <Component Id="cmp81570477E06BB1272190C2B58688E8B0" Guid="*">
+                <File Id="filCF3532EB13F5077B8F4B67EAECBE083E" KeyPath="yes" Source="$(var.Demo.ApplicationServer.TargetDir)\Serilog.dll" />
+            </Component>
+            <Component Id="cmp42E614F77674A5DD0FB5271BEC92C60B" Guid="*">
+                <File Id="fil6D01168335A5B4E965D1EFD1CC691DD6" KeyPath="yes" Source="$(var.Demo.ApplicationServer.TargetDir)\Serilog.Sinks.File.dll" />
+            </Component>
+            <Component Id="cmpC664A1EA2E697A4FCC34C4B54805CCF4" Guid="*">
+                <File Id="filDCEDCEB5E57D0F24F88EF71374B8DEB3" KeyPath="yes" Source="$(var.Demo.ApplicationServer.TargetDir)\Serilog.Sinks.File.xml" />
+            </Component>
+            <Component Id="cmp9065565A187CC31D2B7BBDF8C5E757D9" Guid="*">
+                <File Id="filDB1BE2AA2CB879BEF765DED4E666F065" KeyPath="yes" Source="$(var.Demo.ApplicationServer.TargetDir)\Serilog.Sinks.Literate.dll" />
+            </Component>
+            <Component Id="cmp0688B002874CD32170BDAEFC4C046130" Guid="*">
+                <File Id="filFC7D08C282C5DC5CD8E33128FC3F7CBB" KeyPath="yes" Source="$(var.Demo.ApplicationServer.TargetDir)\Serilog.Sinks.Literate.xml" />
+            </Component>
+            <Component Id="cmpE062B2FB3D2AEC752EF550C106E00268" Guid="*">
+                <File Id="fil7D50192BD3609E8834897569E96A06D7" KeyPath="yes" Source="$(var.Demo.ApplicationServer.TargetDir)\Serilog.Sinks.RollingFile.dll" />
+            </Component>
+            <Component Id="cmpC8EC3F2F993529CF95CAF1E97FD28647" Guid="*">
+                <File Id="filEBBAEC49180B634E1E1998A8F1F5604D" KeyPath="yes" Source="$(var.Demo.ApplicationServer.TargetDir)\Serilog.Sinks.RollingFile.xml" />
+            </Component>
+            <Component Id="cmp83513AD1A6153454AD4BDBCC5A100C97" Guid="*">
+                <File Id="filA15F470B9A8304222AC80A15EFCF0415" KeyPath="yes" Source="$(var.Demo.ApplicationServer.TargetDir)\Serilog.xml" />
+            </Component>
+            <Component Id="cmp302FC9AF30273F42E0BABFFBFEBCBC2F" Guid="*">
+                <File Id="filEC0CBD35EE2A3732CF8415845F8E40D8" KeyPath="yes" Source="$(var.Demo.ApplicationServer.TargetDir)\Topshelf.dll" />
+            </Component>
+            <Component Id="cmpE69F11980DC0E4EE8ED919DCE4DD60C9" Guid="*">
+                <File Id="filA6A956B3E5E8A03F9B05037B842B3C6A" KeyPath="yes" Source="$(var.Demo.ApplicationServer.TargetDir)\Topshelf.Serilog.dll" />
+            </Component>
+            <Component Id="cmp7F34AC20A1316916063D6FC5EBC76E55" Guid="*">
+                <File Id="filDACE41FD3A6729A553E1680EBF02EDDD" KeyPath="yes" Source="$(var.Demo.ApplicationServer.TargetDir)\Topshelf.Serilog.xml" />
+            </Component>
+            <Component Id="cmpB72D02BD41BD10B0D7B338E71AB70A99" Guid="*">
+                <File Id="fil9899C548BFB461F6E54474AD5510411E" KeyPath="yes" Source="$(var.Demo.ApplicationServer.TargetDir)\Topshelf.xml" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="ApplicationServerComponents">
+            <ComponentRef Id="cmpE8BCEAAD6387BE961877844C731E681D" />
+            <ComponentRef Id="cmpE4137A0D8C46A973D1645EC394CF6D2D" />
+            <ComponentRef Id="cmp3B138DD3C86E64E1B624C84F1D61F9CF" />
+            <ComponentRef Id="cmp31137B91C84C2337CCD3B4D4A710083C" />
+            <ComponentRef Id="cmp26956ADA5059353232E5303125B83476" />
+            <ComponentRef Id="cmp81570477E06BB1272190C2B58688E8B0" />
+            <ComponentRef Id="cmp42E614F77674A5DD0FB5271BEC92C60B" />
+            <ComponentRef Id="cmpC664A1EA2E697A4FCC34C4B54805CCF4" />
+            <ComponentRef Id="cmp9065565A187CC31D2B7BBDF8C5E757D9" />
+            <ComponentRef Id="cmp0688B002874CD32170BDAEFC4C046130" />
+            <ComponentRef Id="cmpE062B2FB3D2AEC752EF550C106E00268" />
+            <ComponentRef Id="cmpC8EC3F2F993529CF95CAF1E97FD28647" />
+            <ComponentRef Id="cmp83513AD1A6153454AD4BDBCC5A100C97" />
+            <ComponentRef Id="cmp302FC9AF30273F42E0BABFFBFEBCBC2F" />
+            <ComponentRef Id="cmpE69F11980DC0E4EE8ED919DCE4DD60C9" />
+            <ComponentRef Id="cmp7F34AC20A1316916063D6FC5EBC76E55" />
+            <ComponentRef Id="cmpB72D02BD41BD10B0D7B338E71AB70A99" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>
