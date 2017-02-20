@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+		<UI Id="CustomInstallDialog">
+			<UIRef Id="WixUI_FeatureTree"/>
+			<Publish Dialog="ExitDialog"
+					 Control="Finish"
+					 Event="DoAction"
+					 Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+		</UI>
+		<Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Initialize Demo Configuration" />
+		<!--
+		<Property Id="WixShellExecTarget" Value="[#myapplication.exe]" />
+
+		<CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec"
+					  Impersonate="yes" />
+		-->
+	</Fragment>
+</Wix>
