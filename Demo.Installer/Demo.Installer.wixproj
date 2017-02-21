@@ -23,6 +23,7 @@
   <ItemGroup>
     <Compile Include="Dialogs\CustomInstallDialog.wxs" />
     <Compile Include="Fragments\Client.wxs" />
+    <Compile Include="Fragments\Configuration.wxs" />
     <Compile Include="Fragments\Server.wxs" />
     <Compile Include="Product.wxs" />
   </ItemGroup>
@@ -53,6 +54,14 @@
     <ProjectReference Include="..\Demo.ApplicationServer\Demo.ApplicationServer.csproj">
       <Name>Demo.ApplicationServer</Name>
       <Project>{3de8da80-e504-4391-923d-306f822fa2ba}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\Demo.Initialization\Demo.Initialization.csproj">
+      <Name>Demo.Initialization</Name>
+      <Project>{921a5333-3e8b-4696-938a-70b2a5ca2fb5}</Project>
       <Private>True</Private>
       <DoNotHarvest>True</DoNotHarvest>
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>

@@ -9,34 +9,45 @@
 
 		<WixVariable Id="WixUILicenseRtf" Value=".\Resources\License.rtf" />
 
-		<Feature Id="ProductFeatures" Title="Demo Installer" Level="1" 
+		<Feature Id="ProductFeatures" Title="Demo Installer" Level="1" Display="expand"
 				 ConfigurableDirectory="INSTALLFOLDER" InstallDefault="local">
+			<Feature Id="ConfigureFeatures" Title="Demo Configuration" 
+					 Level="1" Display="hidden" InstallDefault="local">
+				<ComponentGroupRef Id="ConfigureComponent"/>
+			</Feature>
+			
 			<Feature Id="ClientFeature" Title="Demo.Client" Level="1">
 				<ComponentGroupRef Id="ClientComponent" />
 			</Feature>
 		
 			<Feature Id="ServerFeature" Title="Demo.Server" Level="1">
 				<ComponentGroupRef Id="ServerComponent" />
-			</Feature>
+			</Feature>			
 
 			<ComponentRef Id="InstallRegistry"/>
-		</Feature>		
+		</Feature>
 	</Product>
 
 	<!-- Directory/Folder -->
 	<Fragment>
-		<Directory Id="TARGETDIR" Name="SourceDir">
+		<Directory Id="TARGETDIR" Name="SourceDir">			
+			<!--Main Programes-->
 			<Directory Id="ProgramFilesFolder">
 				<Directory Id="INSTALLFOLDER" Name="Demo-Installer">
 					<Directory Id="CLIENTFOLDER" Name="DemoClient" />
 					<Directory Id="SERVERFOLDER" Name="DemoServer" />
 				</Directory>
 			</Directory>
+			
+			<!--Configuration Program-->
+			<Directory Id="AppDataFolder">
+				<Directory Id="CONFIGFOLDER" Name="Demo-Configure" />
+			</Directory>
 		</Directory>
 
 		<Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
 		<UIRef Id="CustomInstallDialog" />
-	</Fragment>
+	</Fragment>	
 
 	<Fragment>
 		<ComponentGroup Id="ClientComponent" Directory="CLIENTFOLDER">
@@ -46,6 +57,10 @@
 		<ComponentGroup Id="ServerComponent" Directory="SERVERFOLDER">
 			<ComponentGroupRef Id="ApplicationServerComponents"/>
 		</ComponentGroup>
+
+		<ComponentGroup Id="ConfigureComponent" Directory="CONFIGFOLDER">
+			<ComponentRef Id="Demo.Initialization"/>		
+		</ComponentGroup>
 	</Fragment>
 	
 	<!-- Registry -->
@@ -54,7 +69,7 @@
 			<Component Id="InstallRegistry" Guid="*">
 				<RegistryKey Root="HKCU"
 							 Key="Software\Microsoft\DemoInstaller"
-					  Action="createAndRemoveOnUninstall">
+							 Action="createAndRemoveOnUninstall">
 					<RegistryValue Name="InstallRootPath" Type="string" Value="[INSTALLFOLDER]" KeyPath="yes"/>
 				</RegistryKey>
 			</Component>
