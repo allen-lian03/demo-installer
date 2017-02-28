@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+		<DirectoryRef Id="CONFIGFOLDER">
+			<Component Id="Demo.Initialization" Guid="{209414AA-7691-483F-B199-E4F4CC01A04C}">				
+				<File Id="Demo.Initialization.exe" 
+					  Source="$(var.Demo.Initialization.TargetDir)\Demo.Initialization.exe"
+					  Checksum="yes" />
+				<File Id="Demo.Initialization.exe.config"
+					  Source="$(var.Demo.Initialization.TargetDir)\Demo.Initialization.exe.config"
+					  Checksum="yes" />
+				<RemoveFolder Id="CONFIGFOLDER" On="uninstall" />
+				<RegistryValue Root="HKCU" Key="Software\Microsoft\DemoConfigure"
+							   Name="installed" Type="integer" Value="1"
+							   KeyPath="yes" />
+			</Component>
+		</DirectoryRef>
+	</Fragment>
+</Wix>
